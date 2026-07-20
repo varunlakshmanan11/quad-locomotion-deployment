@@ -90,11 +90,11 @@ responsible for almost all of the latency:
 
 | | Timer-driven | Event-driven | Change |
 |---|---|---|---|
-| Queue delay (mean) | 10,295 us | 2.4 us | 4300x |
-| Inference (mean) | 1,225 us | 1,227 us | unchanged |
-| End-to-end (mean) | 11,554 us | 1,260 us | 9.2x |
-| End-to-end (p99) | 23,518 us | 2,282 us | 10x |
-| End-to-end (max) | 184,949 us | 2,720 us | 68x |
+| Queue delay (mean) | 10,295 µs | 2.4 µs | 4300x |
+| Inference (mean) | 1,225 µs | 1,227 µs | unchanged |
+| End-to-end (mean) | 11,554 µs | 1,260 µs | 9.2x |
+| End-to-end (p99) | 23,518 µs | 2,282 µs | 10x |
+| End-to-end (max) | 184,949 µs | 2,720 µs | 68x |
 
 The mean queue delay was almost exactly half the 20 ms control period, which is
 the signature of a timer firing independently of message arrival: on average,
@@ -115,10 +115,7 @@ contention with the renderer rather than anything in the control path.
 
 ### Inference cost in isolation versus in situ
 
-The same engine benchmarks at roughly 7 us standalone and roughly 1,225 us with
-Isaac Sim rendering and stepping physics on the same GPU. Isolated inference
-benchmarks are not a useful predictor of real system cost when the accelerator
-is shared.
+The same engine benchmarks at 20 µs with the GPU idle and roughly 1,225 µs with Isaac Sim rendering and stepping physics on the same card. Same model, same engine, 60x difference from contention alone. So the isolated benchmark was basically meaningless. 97% of my remaining latency is the GPU being busy, not my code.
 
 ### Terrain traversal limit
 
