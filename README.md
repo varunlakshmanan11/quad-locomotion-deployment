@@ -6,7 +6,7 @@ control loop against Isaac Sim. The robot perceives the terrain under it through
 a simulated height scanner, walks over uneven ground, and navigates a waypoint
 course autonomously.
 
-https://github.com/user-attachments/assets/ee1e8093-228e-4cc2-8615-86a228780024
+https://github.com/user-attachments/assets/713dab2e-1c55-42d8-a08f-882f0182cde1
 
 The interesting part of this project is not the policy. It is what happens
 between "the policy is trained" and "the robot moves", which is where the real
